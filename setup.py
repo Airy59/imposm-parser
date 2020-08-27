@@ -12,7 +12,7 @@ class build_ext_with_protpbuf(build_ext):
             proc = subprocess.Popen(
                 ['protoc', '--cpp_out', 'imposm/parser/pbf/', 'osm.proto'],
                 stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        except OSError, ex:
+        except (OSError, ex):
             if ex.errno == errno.ENOENT:
                 print ("Could not find protoc command. Make sure protobuf is "
                     "installed and your PATH environment is set.")
